@@ -41,6 +41,33 @@ const getProviderOrSigner = async (needSigner = false) => {
   return web3Provider;
 };
 
+// function handleWalletConnected(){
+//     setWalletConnected(true);
+//     console.log("handle connected called")
+// }
+
+// window.ethereum.on('connect', handleWalletConnected);
+
+// function handleWalletDisconnected(){
+//   setWalletConnected(false);
+//   console.log("handle disconnected called")
+
+// }
+
+// window.ethereum.on('disconnect', handleWalletDisconnected);
+
+async function isConnected() {
+  console.log("Isconnected called")
+  const accounts = await window.ethereum.request({method: 'eth_accounts'});       
+  if (accounts.length) {
+     console.log(`You're connected to: ${accounts[0]}`);
+     setWalletConnected(true);
+  } else {
+     console.log("Metamask is not connected");
+     setWalletConnected(false);
+
+  }
+}
 
 const connectWallet = async () => {
   try {
@@ -68,7 +95,8 @@ useEffect(() => {
     });
     connectWallet();
   }
-}, [walletConnected]);
+  isConnected();
+}, []);
 
 
 

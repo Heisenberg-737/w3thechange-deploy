@@ -41,7 +41,18 @@ const getProviderOrSigner = async (needSigner = false) => {
   return web3Provider;
 };
 
+async function isConnected() {
+  console.log("Isconnected called")
+  const accounts = await window.ethereum.request({method: 'eth_accounts'});       
+  if (accounts.length) {
+     console.log(`You're connected to: ${accounts[0]}`);
+     setWalletConnected(true);
+  } else {
+     console.log("Metamask is not connected");
+     setWalletConnected(false);
 
+  }
+}
 const connectWallet = async () => {
   try {
     // Get the provider from web3Modal, which in our case is MetaMask
@@ -68,7 +79,9 @@ useEffect(() => {
     });
     connectWallet();
   }
+  isConnected();
 }, [walletConnected]);
+
 
   window.document.title = "Change - SignUp";
   const state = useSelector((state) => state.register);

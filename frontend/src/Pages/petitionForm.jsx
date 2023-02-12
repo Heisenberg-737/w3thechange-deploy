@@ -108,7 +108,7 @@ function PetitionForm({ id }) {
                   </div>
 
                   <div className="mb-3">
-                    <h4>Your signature</h4>
+                  <h5>Want to leave a message?</h5>
                     <label className="form-label mt-3">Your message</label>
                     <textarea
                       className={`form-control ${
