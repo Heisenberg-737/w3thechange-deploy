@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --rubik:'Rubik', sans-serif;
+    --red:#03d7fc;
+}
+
+.rubik{
+    font-family: var(--rubik) !important;
+}
+.redColor{
+    color: var(--red) !important;
+}
+.nav-link{
+    color: #000 !important;
+}
+.nav-link:hover{
+    color: var(--red) !important;
+}
+
+.btn_red{
+    background: var(--red);
+}
+
+@media screen and (min-width:991px){
+    #indexHeader{
+        background: url('./image//illustration-world-map-2015-08-18.webp');
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        height: 50vh;
+        overflow: hidden;
+    }
+    #indexHeader_text{
+        margin-top:8rem !important;
+    }
+}
+.btns > .btn{
+    border-radius:30px;
+    margin:.1rem;
+}
+
+#card{
+    background: #fdf9f2 ;
+    border: 1px solid #d3bb91;
+    cursor: pointer;
+}
+#card:hover{
+    background: #ecdbbd;
+}
+.tab-link.active{
+    color:var(--red) !important;
+    border-bottom: 2px solid var(--red);
+}
+.tab-link{
+    font-family:var(--rubik);
+    font-weight:bold;
+}
+.post_link:hover{
+    color: var(--red) !important;
+}
+.tab-link.disabled{
+    color: #8f8f8f !important;
+}
