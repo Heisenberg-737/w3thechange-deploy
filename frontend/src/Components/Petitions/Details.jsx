@@ -49,7 +49,7 @@ function Details({ data, loading, userInfo }) {
       display: ano,
     };
     dispatch(commentAction(messageObj));
-    mintNFT();
+    // mintNFT();
   };
 
   const filter = (id) => {
