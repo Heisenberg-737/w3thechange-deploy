@@ -5,7 +5,6 @@ const CreateSchema = Yup.object().shape({
   description: Yup.string().required("Description is required"),
   goal: Yup.number().min(2).required("Signature goal is required"),
   message: Yup.string().required("Message is required"),
- 
 });
 
 export default CreateSchema

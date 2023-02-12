@@ -95,7 +95,7 @@ module.exports = {
         { $push: { supporters: comment } }
       );
       const pet = await petitionSchema.findOne({ _id: id });
-      res.json({ message: "Your vote has been added successfully", data: pet });
+      res.json({ message: "Your vote has been added successfully! Please check your wallet for NFT", data: pet });
     } catch (error) {
       res.json({ error: error.message });
     }

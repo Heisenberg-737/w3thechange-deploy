@@ -7,7 +7,8 @@ import Loader from "../Loader";
 import { useState } from "react";
 import cat from "../../data/category";
 import axios from "axios";
-import config from '../../Config/header';
+import config from "../../Config/header";
+import mintNFT from "../../scripts/mint-nft.mjs";
 
 function Details({ data, loading, userInfo }) {
   const { loader, messages, errors } = useSelector((state) => state.comment);
@@ -40,6 +41,7 @@ function Details({ data, loading, userInfo }) {
   };
 
   const onSubmit = (event) => {
+    // console.log(event);
     event.preventDefault();
     const messageObj = {
       message: message,
@@ -47,6 +49,7 @@ function Details({ data, loading, userInfo }) {
       display: ano,
     };
     dispatch(commentAction(messageObj));
+    mintNFT();
   };
 
   const filter = (id) => {
@@ -56,10 +59,13 @@ function Details({ data, loading, userInfo }) {
 
   const deletePet = async () => {
     if (window.confirm("Are you sure you want to delete this petition")) {
-       const res = await   axios.delete("/api/petition/delete/"+data._id , config)
-       if(res.data.status){
-         window.location.href = '/'
-       }
+      const res = await axios.delete(
+        "/api/petition/delete/" + data._id,
+        config
+      );
+      if (res.data.status) {
+        window.location.href = "/";
+      }
     }
   };
 
@@ -269,7 +275,10 @@ function Details({ data, loading, userInfo }) {
                     </div>
                   )}
                   {check ? (
-                    <button className="btn btn-danger" onClick={() => deletePet()}>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deletePet()}
+                    >
                       <strong>Remove petition</strong>
                     </button>
                   ) : null}
