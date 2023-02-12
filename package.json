@@ -7,7 +7,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd frontend && npm run start",
     "client-install": "cd frontend && npm install",
