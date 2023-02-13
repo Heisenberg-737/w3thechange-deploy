@@ -13,7 +13,7 @@ app.use("/api/petition", petitionRoute);
 
 const port = process.env.PORT || 3001;
 
-mongoose.connect("mongodb+srv://test:test123@cluster0.c4y5pbf.mongodb.net/?retryWrites=true&w=majority", (err) => {
+mongoose.connect("mongodb+srv://testnew:test123@cluster0.gewehim.mongodb.net/?retryWrites=true&w=majority", (err) => {
   if (err) {
     console.log("Error connecting to MongoDB");
     process.exit(1);
